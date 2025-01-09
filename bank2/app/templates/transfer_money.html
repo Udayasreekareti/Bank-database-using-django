@@ -1,0 +1,37 @@
+{% extends 'temp/base.html' %}
+{% block content %}
+<br><br>
+<style>
+    .success-message {
+        color: green;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+</style>
+<h1>Transfer Your Money</h1>
+<form action="{% url 'tansfer_money' %}" method="post">
+    {% csrf_token %}
+    
+    <label for="s_name">Sender Name:</label>
+    <input type="text" name="s_name" id="s_name" required><br><br>
+
+    <label for="s_phone">Sender Phone Number:</label>
+    <input type="text" name="s_phone" id="s_phone" required><br><br>
+
+    <label for="r_name">Recipient Name:</label>
+    <input type="text" name="r_name" id="r_name" required><br><br>
+
+    <label for="r_phone">Recipient Phone Number:</label>
+    <input type="text" name="r_phone" id="r_phone" required><br><br>
+
+    <label for="transfer_amount">Enter Amount to be Transferred:</label>
+    <input type="number" name="transfer_amount" id="transfer_amount" required><br><br>
+
+    <button type="submit">Transfer</button>
+</form>
+{% if messages %}
+    {% for message in messages %}
+        <div class="success-message">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+{% endblock content %}

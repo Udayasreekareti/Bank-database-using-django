@@ -1,0 +1,36 @@
+{% extends 'temp/base.html' %}
+{% block content %}
+<br><br>
+<h1>Your Details</h1>
+{% if account %}
+    <div>
+        <p><strong>Name:</strong> {{ account.name }}</p>
+        <p><strong>Phone Number:</strong> {{ account.phone }}</p>
+        <p><strong>Email:</strong> {{ account.email }}</p>
+        <p><strong>Account Number:</strong> {{ account.account_no }}</p>
+        <p><strong>Balance:</strong> {{ account.balance }}</p>
+        {% if account.photo %}
+            <img src="{{ account.photo.url }}" alt="Profile Photo" style="width: 150px; height: auto;">
+        {% else %}
+            <p>No photo available.</p>
+        {% endif %}
+    </div>
+{% else %}
+    <form action="{% url 'account_details' %}" method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" name="phone" id="phone" required><br><br>
+
+        <button type="submit">Get Details</button>
+    </form>
+{% endif %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="error-message">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+{% endblock content %}

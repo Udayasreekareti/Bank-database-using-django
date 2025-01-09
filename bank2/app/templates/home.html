@@ -1,0 +1,16 @@
+{% extends 'temp/base.html' %}
+{% block content %}
+<br><br>
+<h1>Welcome to My Bank 😉</h1>
+<br><br>
+<ul>
+        <li><button><a href="{% url 'account_create' %}">Create New Account</a></button></li><br>
+        <li><button><a href="{% url 'pin_generation' %}">Generate PIN</a></button></li><br>
+        <li><button><a href="{% url 'deposite' %}">Deposit Money</a></button></li><br>
+        <li><button><a href="{% url 'withdraw' %}">Withdraw Money</a></button></li><br>
+        <li><button><a href="{% url 'tansfer_money' %}">Transfer Money</a></button></li><br>
+        <li><button><a href="{% url 'account_details' %}">Account Details</a></button></li><br>
+    </ul>
+</center>
+{% endblock content %}
+

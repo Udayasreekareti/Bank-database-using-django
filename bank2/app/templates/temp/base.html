@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<style>
+    *{
+          box-sizing: border-box;
+          padding: 0px;
+          margin: 0px;
+          background-color: aliceblue;
+    }
+        nav{
+            display:flex ;
+            height: 80px;
+            background-color: black;
+            color: white;
+            list-style: none;
+            gap: 5%;
+            justify-content: flex-end;
+            padding-right: 20%;
+            
+        }
+        .li1{
+            color: aliceblue;
+            text-decoration: none;
+            padding-top: 3%;
+            background-color: black;
+        }
+        button{
+            border-radius: 5px;
+            height: 30px;
+            width: 20%;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        #a1{
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+    <center>
+    
+    <nav>
+        <li class="li1"><a href="{% url 'home' %}" id="a1">Home</a></li>
+        <li class="li1">Login</li>
+        <li class="li1">Signup</li>
+        <li class="li1">Contact</a></li>
+    </nav>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
